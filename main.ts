@@ -1,5 +1,16 @@
+radio.onReceivedNumber(function (receivedNumber) {
+    v = receivedNumber
+})
+let v = 0
 joystickbit.initJoystickBit()
 radio.setGroup(2)
+basic.showLeds(`
+    # . . . .
+    # . . . .
+    # # # . .
+    # . . . .
+    # # # # #
+    `)
 basic.forever(function () {
     if (joystickbit.getRockerValue(joystickbit.rockerType.X) < 200) {
         radio.sendNumber(4)
@@ -22,7 +33,6 @@ basic.forever(function () {
     }
 })
 basic.forever(function () {
-    let v = 0
     if (v == 1) {
         wuKong.setAllMotor(100, 100)
     } else if (v == 2) {
