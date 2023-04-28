@@ -3,7 +3,7 @@ radio.onReceivedNumber(function (receivedNumber) {
 })
 let v = 0
 joystickbit.initJoystickBit()
-radio.setGroup(2)
+radio.setGroup(30)
 basic.showLeds(`
     # . . . .
     # . . . .
@@ -21,13 +21,13 @@ basic.forever(function () {
     } else if (joystickbit.getRockerValue(joystickbit.rockerType.Y) > 800) {
         radio.sendNumber(1)
     } else if (joystickbit.getButton(joystickbit.JoystickBitPin.P12)) {
-        radio.sendNumber(5)
+        radio.sendNumber(6)
     } else if (joystickbit.getButton(joystickbit.JoystickBitPin.P13)) {
         radio.sendNumber(6)
-    } else if (!(joystickbit.getButton(joystickbit.JoystickBitPin.P13))) {
-        radio.sendNumber(0)
-    } else if (!(joystickbit.getButton(joystickbit.JoystickBitPin.P12))) {
-        radio.sendNumber(0)
+    } else if (joystickbit.getButton(joystickbit.JoystickBitPin.P14)) {
+        radio.sendNumber(5)
+    } else if (joystickbit.getButton(joystickbit.JoystickBitPin.P15)) {
+        radio.sendNumber(5)
     } else {
         radio.sendNumber(0)
     }
